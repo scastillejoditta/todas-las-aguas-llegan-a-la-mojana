@@ -1,0 +1,31 @@
+{
+  "name": "la_mojana",
+  "version": "1.0.0",
+  "description": "Especial de Mutante sobre la Depresión Momposina",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --load-path=scss ./scss/style.scss ./css/style.css",
+    "sass:watch": "sass --watch --load-path=scss ./scss/style.scss ./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scastillejoditta/la_mojana.git"
+  },
+  "keywords": [
+    "mojana",
+    "mutante",
+    "mompox",
+    "depreción",
+    "momposina"
+  ],
+  "author": "Sara Castillejo Ditta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scastillejoditta/la_mojana/issues"
+  },
+  "homepage": "https://github.com/scastillejoditta/la_mojana#readme",
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "sass": "^1.94.2"
+  }
+}

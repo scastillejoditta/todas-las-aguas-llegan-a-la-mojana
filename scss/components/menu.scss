@@ -1,0 +1,222 @@
+@use '../components/variables' as v;
+
+/* -------------*/
+/* inicializar propiedades*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body 
+{
+    padding-top: 70px;
+    font-family: 'texto', sans-serif;
+    background-color: v.$fondo;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+/* -------------*/
+/* menú */
+
+.container-fluid
+{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.navbar
+{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    box-shadow: 0 8px 60px v.$fondo;
+    z-index: 3;
+}
+
+.navbar-brand img
+{
+  width: 160px;
+}
+
+.navbar-brand
+{
+    border: none;
+}
+
+.navbar-toggler
+{
+  width: 60px;
+  height: 50px;
+  padding: 5px;
+
+  &:hover .mLine
+  {
+      stroke: v.$verde_mutante;
+  }
+
+  &:hover
+  {
+    border-color: v.$verde_mutante;
+  }
+}
+
+.navbar-nav
+{
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'menu', sans-serif;
+  text-transform: uppercase;
+
+  .nav-item
+  { 
+      font-size: 1em;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      
+      transition: border-bottom .3s linear;
+
+      a
+      {
+        color: v.$fondo;
+        border-bottom: 4px #fff solid;
+
+          &:hover {
+            color: v.$verde_mutante; 
+            border-bottom: 4px v.$verde_mutante solid;
+        }
+      } 
+  }
+}
+
+.mouse-scroll 
+{
+    display: block;
+}
+
+.mouse-scroll span
+  {
+    display: block;
+    width: 5px; 
+    height: 5px;
+    transform: rotate(45deg);
+    border-right: 2px solid #fff; 
+    border-bottom: 2px solid #fff;
+    margin: 0 0 3px 5px;
+  }
+
+.mouse-scroll .mouse 
+ {
+    height: 21px;
+    width: 14px;
+    border-radius: 10px;
+    transform: none;
+    border: 2px solid #fff;
+    top: 170px;
+  }
+  
+.mouse-scroll .down-arrow-1 
+  {
+    margin-top: 6px;
+  }
+ 
+.mouse-scroll .down-arrow-1,.mouse-scroll .down-arrow-2,.mouse-scroll .down-arrow-3 
+ {
+    animation: mouse-scroll 1s infinite; 
+ }
+ 
+ .mouse-scroll .down-arrow-1 
+ {
+     animation-delay: .1s; 
+     animation-direction: alternate;
+ }
+ 
+.mouse-scroll .down-arrow-2 
+ {
+    animation-delay: .2s; 
+    animation-direction: alternate;
+  }
+ .mouse-scroll .down-arrow-3 
+ {
+    animation-delay: .3s;
+    animation-direction: alternate;
+  }
+
+ .mouse-scroll .mouse-in 
+ {
+    height: 5px;
+    width: 2px;
+    display: block; 
+    margin: 5px auto;
+    background:#fff;
+    position: relative;
+  }
+
+ .mouse-scroll .mouse-in 
+  {
+   animation: animated-mouse 1.2s ease infinite;
+  }
+  
+  @keyframes animated-mouse {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+       opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+  @-webkit-keyframes mouse-scroll {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .5;
+    }
+    100% {
+      opacity: 1;
+    } 
+  }
+
+  @keyframes mouse-scroll {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 990px)
+  {
+
+    .navbar-brand img
+    {
+      width: 140px;
+    }
+
+    .nav-item a
+    { 
+        padding: 0;
+        margin: 0;
+    }
+  }
