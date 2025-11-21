@@ -34,30 +34,6 @@ h1 {
     margin-bottom:1em;
     color: v.$verde;
 
-    @media (min-width: 1501px)
-    {
-      width: 40%;
-    }
-    @media (max-width: 1227px)
-    {
-      width: 50%;
-    }
-    @media (max-width: 1034px)
-    {
-      width: 60%;
-    }
-    @media (max-width: 867px)
-    {
-      width: 70%;
-    }
-     @media (max-width: 747px)
-    {
-      width: 80%;
-    }
-    @media (max-width: 658px)
-    {
-      width: 90%;
-    }
     @media (max-width: 595px)
     {
       font-size: 2.8em;
@@ -113,6 +89,7 @@ small
   display: flex;
   margin-top: 2em;
   color: v.$rosa;
+
   &__tag
     {
       @extend .titulos;
@@ -123,6 +100,15 @@ small
       margin-top: 0;
       margin-bottom: 1em;
     }
+
+    @media (max-width: 550px)
+      {
+        display: inherit;
+
+        .encabezado__tag {
+          display: block;
+        }
+      }
 }
 
 .menta 
@@ -307,7 +293,7 @@ small
   left: 0;
   top: 20px;
   width: 100%;
-  padding-bottom: 56.25%; //42.2%; // 16:9 aspect ratio (9 / 16 = 0.5625)
+  padding-bottom: 56.25%; 
   overflow: hidden;
 
     &__video
@@ -336,6 +322,10 @@ small
     @media (max-width: 1200px)
     {
       top: 70px;
+
+      .intro {
+        margin-top: 100px;
+      }
     }
 
 } 

@@ -227,36 +227,6 @@ h1 {
   margin-bottom: 1em;
   color: #D7F0FF;
 }
-@media (min-width: 1501px) {
-  h1 {
-    width: 40%;
-  }
-}
-@media (max-width: 1227px) {
-  h1 {
-    width: 50%;
-  }
-}
-@media (max-width: 1034px) {
-  h1 {
-    width: 60%;
-  }
-}
-@media (max-width: 867px) {
-  h1 {
-    width: 70%;
-  }
-}
-@media (max-width: 747px) {
-  h1 {
-    width: 80%;
-  }
-}
-@media (max-width: 658px) {
-  h1 {
-    width: 90%;
-  }
-}
 @media (max-width: 595px) {
   h1 {
     font-size: 2.8em;
@@ -317,6 +287,14 @@ small {
   font-size: 1em;
   margin-top: 0;
   margin-bottom: 1em;
+}
+@media (max-width: 550px) {
+  .encabezado {
+    display: inherit;
+  }
+  .encabezado .encabezado__tag {
+    display: block;
+  }
 }
 
 .menta {
@@ -510,6 +488,9 @@ small {
 @media (max-width: 1200px) {
   .apertura, .ancho_completo {
     top: 70px;
+  }
+  .apertura .intro, .ancho_completo .intro {
+    margin-top: 100px;
   }
 }
 
