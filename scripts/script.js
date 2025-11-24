@@ -26,3 +26,71 @@ const panels = document.querySelectorAll('.panel');
   });
 
   panels.forEach(panel => observer.observe(panel));
+
+  // scripts para el mapa
+const mapPanel = document.getElementById('mapPanel');
+const mapImage = document.getElementById('mapImage');
+        
+// Scroll horizontal con rueda del mouse
+mapPanel.addEventListener('wheel', (e) => {
+  if (e.deltaY !== 0) {
+    e.preventDefault();
+    mapPanel.scrollLeft += e.deltaY;
+    }
+  });
+
+  // Navegación con teclado (flechas)
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    mapPanel.scrollLeft -= 50;
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      mapPanel.scrollLeft += 50;
+      }
+  });
+
+// Arrastrar con el mouse
+let isDown = false;
+let startX;
+let scrollLeft;
+
+mapPanel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - mapPanel.offsetLeft;
+    scrollLeft = mapPanel.scrollLeft;
+  });
+
+mapPanel.addEventListener('mouseleave', () => {
+  isDown = false;
+  });
+
+mapPanel.addEventListener('mouseup', () => {
+  isDown = false;
+  });
+
+mapPanel.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - mapPanel.offsetLeft;
+    const walk = (x - startX) * 2;
+    mapPanel.scrollLeft = scrollLeft - walk;
+  });
+
+// Marcadores del mapa
+const markers = document.querySelectorAll('.marker');
+
+// Agregar evento de click a cada marcador
+markers.forEach(marker => {
+    marker.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evitar que el click se propague al panel
+        
+        // Opción 1: Alternar solo el marcador clickeado
+        marker.classList.toggle('marker_active');
+    });
+});
+
+// Opcional: Cerrar todos los marcadores al hacer click fuera de ellos
+mapPanel.addEventListener('click', () => {
+    markers.forEach(marker => marker.classList.remove('marker_active'));
+});

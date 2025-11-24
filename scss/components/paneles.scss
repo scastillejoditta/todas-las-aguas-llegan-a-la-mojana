@@ -498,7 +498,7 @@ small
 
     .img {
       @extend .fotoportada;
-      background: url('../assets/images/banner_galeria.webp') no-repeat center;
+      background: url('../assets/images/banner_galeria.jpg') no-repeat center;
       background-size: cover;
       border-radius: 20px;
     }
@@ -665,6 +665,10 @@ small
 }
 
 .ruta {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  
   display: flex;
   gap: 1rem;
   overflow-x: auto; // Permite scroll horizontal
@@ -764,6 +768,16 @@ small
 }
 
 // Animación de scroll
+@keyframes pulse {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%; // Mueve la mitad del contenido
+  }
+}
+
+// Animación de scroll
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
@@ -803,6 +817,182 @@ small
   @include colorear_cards(v.$verde);
 }
 
+// Mapa horizontal
+.map-panel 
+{
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+
+  &__wrapper 
+  {
+    height: 100%;
+    display: inline-block;
+    position: relative;
+
+    &-image 
+    {
+      height: 100%;
+      width: auto;
+      display: block;
+      cursor: grab;
+      user-select: none;
+        
+      &:active 
+      {
+        cursor: grabbing;
+      }
+    }  
+  }
+         
+  &::-webkit-scrollbar {
+  height: 12px;}
+            
+  &::-webkit-scrollbar-track 
+  {
+    background: #f1f1f1;
+    border-radius: 0 0 8px 8px;
+  }
+            
+  &::-webkit-scrollbar-thumb {
+  
+    background: #888;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    }
+}
+
+/* Marcadores sobre el mapa */
+.marker 
+{
+  position: absolute;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  z-index: 2;
+
+  &__pin 
+  {
+    width: 17px;
+    height: 17px;
+    background-color: #fff;
+    border: 1.5px solid v.$fondo;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(255, 181, 151, 0.3);
+    transition: transform 0.2s ease;
+    animation: pulse 0.6s infinite;
+    
+  }
+
+  &__label 
+  {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 181, 151, 0.85);
+    color: black;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 2px 6px rgba(255, 181, 151, 0.3);
+    display: none;
+  
+    &::after 
+    {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: rgba(255, 181, 151, 0.85);
+    }
+  }
+
+  &_active {
+      .marker__label { 
+        display: block;
+      }
+      .marker__pin {
+        animation: none;
+      }
+  }
+}
+
+.mapinfo
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;      // tres columnas iguales
+  grid-template-rows: auto auto ;      // tres filas
+  gap: 1em;
+
+  &__item 
+  {
+    display: flex;              
+    align-items:first baseline;        // Centrar verticalmente
+    gap: 0.5em;  
+
+    &-col {
+      display: inline-block;
+      width: auto; 
+      margin: 0;
+      
+       img {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+      }
+
+      span {
+        font-family: 'texto', sans-serif;
+        font-size: 0.7em;
+        color: v.$verde;
+      }
+    }
+
+    &:nth-child(1) {
+      width: 50px;
+      max-width: 50px;
+    }
+  }
+
+  @media (max-width: 940px)
+  {
+    grid-template-columns: 1fr 1fr 1fr;      // tres columnas iguales
+    grid-template-rows: auto auto auto;      // tres filas
+  }
+
+  @media (max-width: 530px)
+  {
+    grid-template-columns: 1fr 1fr;      // dos columnas iguales
+    grid-template-rows: auto auto auto auto auto;      // cinco filas
+  }
+}
+
+.info
+{
+  font-family: 'titulos', sans-serif;
+  font-size: 2em;
+  font-style: italic;
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+.brm {
+  margin-top: 3em;
+}
+
+        
 
 .creditos
 {
@@ -898,5 +1088,5 @@ small
 
 // Logos
 .moneda {
-  background-image: url("../assets/images/coin_rosa.png");
+  background-image: url("../assets/images/amarilla.webp");
   }

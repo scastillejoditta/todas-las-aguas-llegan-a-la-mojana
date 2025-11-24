@@ -215,7 +215,7 @@ hr {
 }
 
 .titulos, .encabezado__tag, h2, h1 {
-  color: #FFB597;
+  color: #EBEA8B;
   text-transform: uppercase;
   font-family: "titulos", sans-serif;
 }
@@ -272,13 +272,13 @@ small {
   text-align: left;
 }
 .intro p {
-  color: #FFB597;
+  color: #EBEA8B;
 }
 
 .encabezado {
   display: flex;
   margin-top: 2em;
-  color: #FFB597;
+  color: #EBEA8B;
 }
 .encabezado__tag {
   display: inline-block;
@@ -308,19 +308,19 @@ small {
   border-bottom: #D7F0FF dotted 2px;
 }
 .menta .enlace:hover {
-  color: #FFB597;
-  border-color: #FFB597;
+  color: #EBEA8B;
+  border-color: #EBEA8B;
 }
 
 .rosa {
-  color: #FFB597;
+  color: #EBEA8B;
 }
 .rosa * {
-  color: #FFB597;
+  color: #EBEA8B;
 }
 .rosa .enlace {
-  color: #FFB597;
-  border-bottom: #FFB597 dotted 2px;
+  color: #EBEA8B;
+  border-bottom: #EBEA8B dotted 2px;
 }
 .rosa .enlace:hover {
   color: #D7F0FF;
@@ -375,7 +375,7 @@ small {
   white-space: nowrap;
 }
 #indicator .nav-link.active {
-  color: hsl(17.3076923077, 100%, 129.6078431373%);
+  color: hsl(59.375, 70.5882352941%, 123.3333333333%);
   text-shadow: 2px 3px 6px #000;
   transition: all 0.3s ease;
   background-color: transparent;
@@ -612,7 +612,7 @@ small {
   padding: 3px;
 }
 .galeria .galeria-thumbnail .img {
-  background: url("../assets/images/banner_galeria.webp") no-repeat center;
+  background: url("../assets/images/banner_galeria.jpg") no-repeat center;
   background-size: cover;
   border-radius: 20px;
 }
@@ -746,6 +746,9 @@ small {
 }
 
 .ruta {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   gap: 1rem;
   overflow-x: auto;
@@ -801,7 +804,7 @@ small {
   font-family: "menu", sans-serif;
   font-size: 0.9em;
   color: #4F5540;
-  background-color: #FFB597;
+  background-color: #EBEA8B;
   padding: 0.5em;
   border-radius: 10px;
 }
@@ -809,14 +812,14 @@ small {
   font-family: "titulos", sans-serif;
   font-size: 1em;
   text-transform: uppercase;
-  color: #FFB597;
+  color: #EBEA8B;
   margin-top: 1em;
   margin-bottom: 0;
 }
 .ruta a .ruta__pieza-descrip small {
   font-family: "texto", sans-serif;
   letter-spacing: 1px;
-  color: #FFB597;
+  color: #EBEA8B;
   margin-top: 0;
   margin-bottom: 0.5em;
 }
@@ -824,6 +827,14 @@ small {
   border: solid 2px #D7F0FF;
 }
 
+@keyframes pulse {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
@@ -882,6 +893,149 @@ small {
 #panelb .card_total:hover, #panelb .card2:hover {
   border: solid 2px #D7F0FF;
   cursor: pointer;
+}
+
+.map-panel {
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+.map-panel__wrapper {
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+.map-panel__wrapper-image {
+  height: 100%;
+  width: auto;
+  display: block;
+  cursor: grab;
+  user-select: none;
+}
+.map-panel__wrapper-image:active {
+  cursor: grabbing;
+}
+.map-panel::-webkit-scrollbar {
+  height: 12px;
+}
+.map-panel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 0 8px 8px;
+}
+.map-panel::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+.map-panel::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Marcadores sobre el mapa */
+.marker {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  z-index: 2;
+}
+.marker__pin {
+  width: 17px;
+  height: 17px;
+  background-color: #fff;
+  border: 1.5px solid #4F5540;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(255, 181, 151, 0.3);
+  transition: transform 0.2s ease;
+  animation: pulse 0.6s infinite;
+}
+.marker__label {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 181, 151, 0.85);
+  color: black;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(255, 181, 151, 0.3);
+  display: none;
+}
+.marker__label::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(255, 181, 151, 0.85);
+}
+.marker_active .marker__label {
+  display: block;
+}
+.marker_active .marker__pin {
+  animation: none;
+}
+
+.mapinfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1em;
+}
+.mapinfo__item {
+  display: flex;
+  align-items: first baseline;
+  gap: 0.5em;
+}
+.mapinfo__item-col {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+}
+.mapinfo__item-col img {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.mapinfo__item-col span {
+  font-family: "texto", sans-serif;
+  font-size: 0.7em;
+  color: #D7F0FF;
+}
+.mapinfo__item:nth-child(1) {
+  width: 50px;
+  max-width: 50px;
+}
+@media (max-width: 940px) {
+  .mapinfo {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}
+@media (max-width: 530px) {
+  .mapinfo {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+  }
+}
+
+.info {
+  font-family: "titulos", sans-serif;
+  font-size: 2em;
+  font-style: italic;
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+.brm {
+  margin-top: 3em;
 }
 
 .creditos {
@@ -1003,7 +1157,7 @@ small {
 }
 
 .moneda {
-  background-image: url("../assets/images/coin_rosa.png");
+  background-image: url("../assets/images/amarilla.webp");
 }
 
 /*# sourceMappingURL=style.css.map */
