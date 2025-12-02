@@ -281,6 +281,8 @@ small {
   color: #EBEA8B;
 }
 .encabezado__tag {
+  font-style: italic;
+  letter-spacing: 0.2px;
   display: inline-block;
   min-width: 50%;
   text-align: center;
@@ -434,13 +436,17 @@ small {
 }
 
 .section {
-  min-height: 100vh;
   width: 100%;
   padding-top: 50px;
   margin-left: auto;
   margin-right: auto;
 }
 
+@media (max-width: 1200px) {
+  #intro {
+    margin-top: 100px;
+  }
+}
 .separador, .separador_peq {
   display: block;
   height: 500px;
@@ -488,9 +494,6 @@ small {
 @media (max-width: 1200px) {
   .apertura, .ancho_completo {
     top: 70px;
-  }
-  .apertura .intro, .ancho_completo .intro {
-    margin-top: 100px;
   }
 }
 
@@ -901,7 +904,7 @@ small {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
 }
@@ -1157,7 +1160,7 @@ small {
 }
 
 .moneda {
-  background-image: url("../assets/images/amarilla.webp");
+  background-image: url("../assets/images/coin_amarilla.webp");
 }
 
 /*# sourceMappingURL=style.css.map */
