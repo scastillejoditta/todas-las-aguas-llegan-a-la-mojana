@@ -914,10 +914,14 @@ small {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow-x: hidden;
+  /* horizontal scroll so users can pan the oversized map on touch devices */
+  overflow-x: auto;
   overflow-y: hidden;
   position: relative;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
 }
+
 .map-panel__wrapper {
   height: 100%;
   display: inline-block;
@@ -929,7 +933,10 @@ small {
   display: block;
   cursor: grab;
   user-select: none;
+  -webkit-user-drag: none; /* nonstandard but required for Safari */
+  /* user-drag is not standard and causes lint warnings, omit it */
 }
+
 .map-panel__wrapper-image:active {
   cursor: grabbing;
 }
