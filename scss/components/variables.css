@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "texto";
+  src: url("../assets/fonts/SpaceMono-Regular.ttf");
+}
+@font-face {
+  font-family: "titulos";
+  src: url("../assets/fonts/Denim-Bold.otf");
+  letter-spacing: 200;
+}
+@font-face {
+  font-family: "leyenda";
+  src: url("../assets/fonts/Denim-Medium.otf");
+}
+@font-face {
+  font-family: "menu";
+  src: url("../assets/fonts/Denim-Bold.otf");
+}/*# sourceMappingURL=variables.css.map */

@@ -537,6 +537,20 @@ small
             line-height: 1;
     }
 
+    .autores 
+    { 
+            position: absolute; 
+            bottom: 30%;
+            left: 14%; 
+            padding: 5px 10px; 
+            color: v.$verde; 
+            display: inline-block;
+            font-size: small;
+            font-family: 'texto', sans-serif;
+            text-transform: uppercase;
+            margin: 0;
+    }
+
     @media (max-width: 966px)
     {
       .title 
@@ -1064,15 +1078,15 @@ small
 .pieza2
 {background-image: url("../assets/images/pieza2.jpg");}
 .pieza3
-{background-image: url("../assets/images/pieza3.webp");}
+{background-image: url("../assets/images/pieza3.jpg");}
 .pieza4
-{background-image: url("https://mutante.org/wp-content/uploads/2025/06/01-2-jpg.webp");}
+{background-image: url("../assets/images/pieza4.jpg");}
 .pieza5
-{background-image: url("https://mutante.org/wp-content/uploads/2025/06/Flyerenvivo-jpg.webp");}
+{background-image: url("../assets/images/pieza5.jpg");}
 .pieza6
 {background-image: url("../assets/images/pieza6.jpg");}
 .pieza7
-{background-image: url("https://mutante.org/wp-content/uploads/2025/06/01-100-jpg.webp");}
+{background-image: url("../assets/images/pieza7.jpg");}
 .pieza8
 {background-image: url("../assets/images/pieza8.jpg");}
 .pieza9
