@@ -526,7 +526,7 @@ small
     .title 
     { 
             position: absolute; 
-            top: 43%; 
+            top: 40%; 
             left: 15%;
             width: 80%;
             font-family: 'titulos', sans-serif;
@@ -551,16 +551,29 @@ small
             margin: 0;
     }
 
-    @media (max-width: 966px)
+    @media (max-width: 1086px)
     {
       .title 
       { 
         font-size: 2em;
-        left: 13%;
+        left: 10%;
+      }
+      .autores 
+      {
+        font-size: 1em;
+        left: 10%;
+        bottom: 35%;
       }
     }
-
-    @media (max-width: 650px)
+    
+    @media (max-width: 981px)
+    {
+      .title,.autores 
+      { 
+        left: 5%;
+      }
+    }
+    @media (max-width: 810px)
     {
       .title 
       { 
@@ -568,6 +581,26 @@ small
         top: 30%;
         width: 90%;
         font-size: 1.4em;
+      }
+      .autores 
+      { 
+        bottom: 10%;
+        left: 20px;
+        width: 90%;
+        font-size: 0.8em;
+      }
+    }
+    
+    @media (max-width: 450px)
+    {
+      .title 
+      { 
+       font-size: 1.2em;
+      }
+      .autores 
+      { 
+        line-height: 100%;
+        font-size: 0.6em;
       }
     }
   }
